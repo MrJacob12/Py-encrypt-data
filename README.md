@@ -1,7 +1,8 @@
 ### Py-encrypt-data
 ---
 ## Required
-* [cryptography][link]
+* [Python >= 3.8][https://www.python.org/]
+* [Cryptography][link]
 
 
 
