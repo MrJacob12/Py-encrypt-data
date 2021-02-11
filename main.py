@@ -14,7 +14,6 @@ def encrypt_data(filename,keyname):
     key = open(wxs,"rb").read()
     f = Fernet(key)
     with open(filename, "rb") as file:
-        # read all file data
         file_data = file.read()
         encrypted_data = f.encrypt(file_data)
         with open(filename, "wb") as file:
@@ -28,11 +27,8 @@ def decrypt_data(filename,keyname):
     key = open(wxs,"rb").read()
     f = Fernet(key)
     with open(filename, "rb") as file:
-        # read the encrypted data
         encrypted_data = file.read()
-    # decrypt data
     decrypted_data = f.decrypt(encrypted_data)
-    # write the original file
     with open(filename, "wb") as file:
         file.write(decrypted_data)
         print("Successful decrypt data")
