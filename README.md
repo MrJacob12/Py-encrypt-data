@@ -6,6 +6,6 @@
 
 
 
+[link1]: https://www.python.org/
+[link2]: https://pypi.org/project/cryptography/
 
-[link1]: https://pypi.org/project/cryptography/
-[link2]: https://www.python.org/
