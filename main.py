@@ -4,7 +4,9 @@ import glob, os
 def generate_key(file):
     key = Fernet.generate_key()
     file += ".key"
-    with open(file,"wb") as key_file:
+    a = "key/"
+    a += file
+    with open(a,"wb") as key_file:
         key_file.write(key)
 
 def encrypt_data(filename,keyname):
