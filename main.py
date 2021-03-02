@@ -3,9 +3,9 @@ import glob, os
 
 def generate_key():
     key = Fernet.generate_key()
-    print(key)
+    return key
 
-def encrypt_data(filename,keyname):
+def encrypt_data_file(filename,keyname):
     key = keyname
     f = Fernet(key)
     with open(filename, "rb") as file:
@@ -15,7 +15,7 @@ def encrypt_data(filename,keyname):
             file.write(encrypted_data)
             print("Successful encrypt data")
 
-def decrypt_data(filename,keyname):
+def decrypt_data_file(filename,keyname):
     key = keyname
     f = Fernet(key)
     with open(filename, "rb") as file:
@@ -25,4 +25,14 @@ def decrypt_data(filename,keyname):
         file.write(decrypted_data)
         print("Successful decrypt data")
 
+def encrypt_data(text,keyname):
+    encoded_message = text.encode()
+    f = Fernet(keyname)
+    encrypted_message = f.encrypt(encoded_message)
+    return encrypted_message
+
+def decrypt_data(text,keyname):
+    f = Fernet(keyname)
+    decrypted_message = f.decrypt(text)
+    return decrypted_message.decode()
 
