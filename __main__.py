@@ -5,23 +5,23 @@ def generate_key():
     key = Fernet.generate_key()
     return key
 
-def encrypt_data_file(filename,keyname):
+def encrypt_data_file(filepath,keyname):
     key = keyname
     f = Fernet(key)
-    with open(filename, "rb") as file:
+    with open(filepath, "rb") as file:
         file_data = file.read()
         encrypted_data = f.encrypt(file_data)
-        with open(filename, "wb") as file:
+        with open(filepath, "wb") as file:
             file.write(encrypted_data)
             print("Successful encrypt data")
 
-def decrypt_data_file(filename,keyname):
+def decrypt_data_file(filepath,keyname):
     key = keyname
     f = Fernet(key)
-    with open(filename, "rb") as file:
+    with open(filepath, "rb") as file:
         encrypted_data = file.read()
     decrypted_data = f.decrypt(encrypted_data)
-    with open(filename, "wb") as file:
+    with open(filepath, "wb") as file:
         file.write(decrypted_data)
         print("Successful decrypt data")
 
